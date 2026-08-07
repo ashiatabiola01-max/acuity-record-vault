@@ -102,13 +102,19 @@ export function RequestForm({ onSubmitted }: { onSubmitted: () => void }) {
 
   const next = () => {
     const err = validate();
-    if (err) return toast.error(err);
+    if (err) {
+      toast.error(err);
+      return;
+    }
     setStep((s) => Math.min(s + 1, STEPS.length - 1));
   };
 
   const submit = () => {
     const err = validate();
-    if (err) return toast.error(err);
+    if (err) {
+      toast.error(err);
+      return;
+    }
     const record: VaultRequest = {
       ...form,
       amount: PACKAGES[form.pkg].price,
