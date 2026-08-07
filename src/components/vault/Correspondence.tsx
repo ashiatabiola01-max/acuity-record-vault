@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 
 export function Correspondence({ request }: { request: VaultRequest }) {
   const templates = buildTemplates(request);
-  const [active, setActive] = useState(templates[0].id);
+  const [active, setActive] = useState(templates[0]!.id);
   const [copied, setCopied] = useState<string | null>(null);
-  const tpl = templates.find((t) => t.id === active) ?? templates[0];
+  const tpl = templates.find((t) => t.id === active) ?? templates[0]!;
+
 
   const copy = async () => {
     try {
