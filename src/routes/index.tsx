@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { FileSignature, Search, ShieldCheck, Vault, Mail } from "lucide-react";
+import { FileSignature, Search, ShieldCheck, Mail } from "lucide-react";
+import logoAsset from "@/assets/logo-mark.png.asset.json";
 import { RequestForm } from "@/components/vault/RequestForm";
 import { TrackRequest } from "@/components/vault/TrackRequest";
 import { AdminConsole } from "@/components/vault/AdminConsole";
@@ -21,6 +22,8 @@ export const Route = createFileRoute("/")({
         content:
           "Secure academic record fulfillment and verification portal for students, employers, and institutions.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -42,8 +45,8 @@ function Index() {
       <header className="border-b border-border" style={{ background: "var(--gradient-vault)" }}>
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
           <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-primary-foreground/15 text-primary-foreground ring-1 ring-primary-foreground/25">
-              <Vault className="h-6 w-6" />
+            <div className="grid h-14 w-16 shrink-0 place-items-center rounded-md bg-card p-1">
+              <img src={logoAsset.url} alt="Acuity RISE Education Group logo" className="h-full w-full object-contain" />
             </div>
             <div className="min-w-0">
               <h1 className="truncate text-xl font-bold tracking-tight text-primary-foreground sm:text-2xl">
